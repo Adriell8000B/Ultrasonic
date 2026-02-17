@@ -10,16 +10,10 @@
 */
 class Ultrasonic {
 	private:
-	/*
-	*	@private _TRIGGER_PIN
-	* @brief Defines the TRIGGER pin
-	*/
-	const uint8_t& _TRIGGER_PIN;
-	/*
-	* @private _ECHO_PIN
-	* @brief Defines the ECHO pin
-	*/
-	const uint8_t& _ECHO_PIN;
+	uint8_t _TRIGGER_PIN;
+	uint8_t _ECHO_PIN;
+	volatile uint8_t* _outReg;
+	uint8_t _pinMask;
 	
 	/*
 	* @private setup_pins()
@@ -38,8 +32,8 @@ class Ultrasonic {
 	Constructor of the main class Ultrasonic
 	*/
 	Ultrasonic(
-		const uint8_t& TRIGGER_PIN,
-		const uint8_t& ECHO_PIN
+		uint8_t TRIGGER_PIN,
+		uint8_t ECHO_PIN
 	);
 
 	/*
